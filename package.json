@@ -1,0 +1,32 @@
+{
+  "name": "clearday-notes",
+  "version": "0.1.0",
+  "description": "A minimalist, keyboard-first to-do list and notes app for your desktop. No account, no network, no dependencies.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Mohamad Iksan Ubaidillah",
+  "private": false,
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node scripts/serve.js",
+    "test": "node --test tests/*.test.js",
+    "check": "node scripts/check.js",
+    "e2e": "node scripts/e2e.mjs",
+    "build": "node scripts/bundle.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mokabah/clearday-notes.git"
+  },
+  "files": [
+    "index.html",
+    "sw.js",
+    "manifest.webmanifest",
+    "icons",
+    "src",
+    "scripts",
+    "electron"
+  ]
+}

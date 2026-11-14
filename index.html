@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="Clearday Notes: a minimalist, keyboard-first to-do list. Local-first, no account, no dependencies.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self'; script-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>Clearday Notes</title>
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="src/ui/styles.css">
+</head>
+<body>
+  <div class="app" id="app">
+    <aside class="sidebar" aria-label="Views">
+      <div class="brand"><span class="brand-mark" aria-hidden="true"></span><span>Clearday Notes</span></div>
+      <nav id="views" class="views"></nav>
+      <div class="side-label" id="tags-label" hidden>Tags</div>
+      <nav id="tags" class="tags"></nav>
+      <div class="side-foot">
+        <button class="ghost" id="btn-themes" title="Themes (T)">Themes <kbd>T</kbd></button>
+        <button class="ghost" id="btn-palette" title="Command palette (Ctrl+K)">Commands <kbd>Ctrl K</kbd></button>
+        <button class="ghost" id="btn-help" title="Keyboard shortcuts (?)">Shortcuts <kbd>?</kbd></button>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="head">
+        <p class="eyebrow" id="eyebrow"></p>
+        <h1 id="title"></h1>
+        <p class="sub" id="subtitle"></p>
+      </header>
+
+      <form class="adder" id="adder" autocomplete="off">
+        <input id="add-input" type="text" spellcheck="false" aria-label="Add a task"
+               placeholder="Add a task…  try: Call Alex friday 3pm #family !high // bring the files">
+        <div class="chips" id="chips" aria-live="polite"></div>
+      </form>
+
+      <ul class="list" id="list" role="list"></ul>
+      <div class="empty" id="empty" hidden></div>
+    </main>
+  </div>
+
+  <div class="overlay" id="focus" hidden role="dialog" aria-modal="true" aria-label="Focus mode">
+    <div class="focus-card">
+      <p class="eyebrow">Focus</p>
+      <h2 id="focus-title"></h2>
+      <p class="focus-meta" id="focus-meta"></p>
+      <div class="timer" id="focus-timer" aria-live="off">25:00</div>
+      <div class="focus-actions">
+        <button id="focus-start" class="primary">Start 25 min</button>
+        <button id="focus-done">Done</button>
+        <button id="focus-skip" class="ghost">Next task</button>
+        <button id="focus-exit" class="ghost">Exit <kbd>Esc</kbd></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="overlay" id="palette" hidden role="dialog" aria-modal="true" aria-label="Command palette">
+    <div class="palette-card">
+      <input id="palette-input" type="text" spellcheck="false" placeholder="Type a command or search tasks…" aria-label="Command">
+      <ul id="palette-list" role="listbox"></ul>
+    </div>
+  </div>
+
+  <div class="overlay" id="themes" hidden role="dialog" aria-modal="true" aria-label="Choose a theme">
+    <div class="themes-card"><h3>Theme</h3><div class="theme-grid"></div></div>
+  </div>
+
+  <div class="overlay" id="help" hidden role="dialog" aria-modal="true" aria-label="Keyboard shortcuts">
+    <div class="help-card" id="help-body"></div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+  <input type="file" id="import-file" accept="application/json,.json" hidden>
+
+  <script type="module" src="src/ui/app.js"></script>
+</body>
+</html>

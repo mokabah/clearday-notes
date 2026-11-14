@@ -1,0 +1,11 @@
+{
+  "name": "Clearday Notes",
+  "short_name": "Clearday Notes",
+  "description": "A minimalist, keyboard-first to-do list and notes app.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f6f3ee",
+  "theme_color": "#f6f3ee",
+  "icons": [{ "src": "icons/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }]
+}
